@@ -1,4 +1,4 @@
-# Nepali Tech - E-Market Finder
+# Nepali Tech
 
 A web-based electronic products marketplace finder for Nepal with admin panel to manage products.
 
