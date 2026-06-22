@@ -1,0 +1,67 @@
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.sublime-workspace
+*.sublime-project
+
+# XAMPP and local development
+/config/local.php
+.env
+.env.local
+/php/db_config_local.php
+
+# Database files (exclude backups, include schema)
+/php/backup*.sql
+setup.php
+setup-db.php
+setup-db-direct.php
+!php/database_setup.sql
+
+# Image uploads
+/img/uploads/*
+!img/uploads/.gitkeep
+
+# PHP temporary and cache files
+/tmp/
+/cache/
+*.log
+/vendor/
+composer.lock
+
+# Node modules (if using npm)
+node_modules/
+package-lock.json
+
+# Operating system files
+Thumbs.db
+.Thumbs.db
+.DS_Store
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Mail and session files
+/sessions/
+/mails/
+
+# OS specific
+.directory
+Desktop.ini
+
+# Build and distribution
+/dist/
+/build/
+
+# Keep uploads directory but not files
+!img/uploads/.gitkeep
