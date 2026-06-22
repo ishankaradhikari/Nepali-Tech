@@ -28,20 +28,27 @@ NepaliTech/
 │   ├── logout.php           # Admin logout
 │   └── manage-products.php  # Product management
 ├── css/
-│   └── style.css            # Main stylesheet
+│   └── style.css            # Main stylesheet with custom properties
 ├── img/
-│   └── uploads/             # Product images directory
+│   ├── products/            # Product gallery images
+│   │   └── *.jpg            # Product images (centralized)
+│   └── uploads/             # User-uploaded images directory
 ├── js/
-│   └── script.js            # Main JavaScript file
+│   └── script.js            # Client-side interactions
 ├── php/
-│   ├── db_connect.php       # Database connection
+│   ├── db_connect.php       # Database connection configuration
+│   ├── db_connect.example.php  # Configuration template
 │   ├── functions.php        # Helper functions
-│   └── database_setup.sql   # Database schema
-├── index.html               # Home page
-├── products.php             # Products listing page
-├── product-detail.php       # Product detail page
-├── contact.php              # Contact form page
-├── setup.php                # Database setup (run once)
+│   └── database_setup.sql   # Database schema & sample data
+├── index.html               # Home page with hero & featured products
+├── products.php             # Products listing with filters
+├── product-detail.php       # Individual product details
+├── contact.php              # Customer contact form
+├── setup.php                # Database initialization (run once)
+├── .gitignore               # Git exclusion rules
+├── .gitattributes           # Line ending normalization
+├── LICENSE                  # MIT License
+├── SETUP.md                 # Detailed setup instructions
 └── README.md                # This file
 ```
 
@@ -98,7 +105,38 @@ $password = "";
 $database = "nepali_e_market";
 ```
 
-## Features Details
+## Image Management
+
+All product images are centralized in the `img/products/` folder for better organization.
+
+### Adding Product Images
+
+1. **Upload image to**: `img/products/` folder
+2. **Naming convention**: Use lowercase with hyphens (e.g., `samsung-galaxy-s25.jpg`)
+3. **Supported formats**: JPG, PNG
+4. **File size**: Keep under 200KB (compress JPGs to 80-85% quality)
+
+### Image Paths in Database
+
+When adding products via admin panel, enter image path as:
+```
+img/products/your-image.jpg
+```
+
+The system automatically displays images correctly across all pages:
+- Home page featured products
+- Product listing page
+- Product detail pages
+- Admin product management
+
+### Example: Adding a New Product
+
+1. Go to `Admin/dashboard.php` → Manage Products
+2. Click "Add New Product"
+3. Enter product details and image path: `img/products/productname.jpg`
+4. Save - image will display automatically
+
+
 
 ### Product Management
 - Add new products with images, specs, and pricing
@@ -120,17 +158,27 @@ $database = "nepali_e_market";
 
 ## File Descriptions
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Home page with featured products |
-| `products.php` | Products listing with filters |
-| `contact.php` | Contact form for customers |
-| `php/db_connect.php` | Database connection setup |
-| `php/functions.php` | Reusable PHP functions |
-| `css/style.css` | All styling rules |
-| `js/script.js` | Client-side interactions |
-| `Admin/dashboard.php` | Admin overview page |
-| `Admin/manage-products.php` | Product CRUD operations |
+| File/Folder | Purpose |
+|---|---|
+| `index.html` | Home page with hero section, search, and featured products |
+| `products.php` | Products listing page with category, brand, and price filters |
+| `product-detail.php` | Individual product detail page |
+| `contact.php` | Customer contact form page |
+| `php/db_connect.php` | Database connection configuration |
+| `php/db_connect.example.php` | Template for database configuration (shows structure without credentials) |
+| `php/functions.php` | Reusable PHP helper functions |
+| `php/database_setup.sql` | Database schema and sample product data |
+| `css/style.css` | Complete styling with CSS custom properties (variables) |
+| `js/script.js` | Client-side JavaScript for interactions |
+| `img/products/` | **Product gallery images** (organized centrally) |
+| `img/uploads/` | User-uploaded images directory (excluded from git) |
+| `Admin/dashboard.php` | Admin overview with product statistics |
+| `Admin/login.php` | Admin authentication page |
+| `Admin/logout.php` | Admin logout handler |
+| `Admin/manage-products.php` | Product CRUD operations (add, edit, delete) |
+| `setup.php` | Database initialization script (run once after installation) |
+| `.gitignore` | Files excluded from version control (credentials, uploads, cache) |
+| `.gitattributes` | Ensures consistent line endings across platforms |
 
 ## Security Notes
 
